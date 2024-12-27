@@ -6,7 +6,7 @@ import { TeamSwitcher } from "@/components/team-switcher";
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarRail } from "@/components/ui/sidebar";
 import { NavGeneral } from "./nav-general";
 import { useUserDetailsStore } from "@/lib/store";
-import sunLogo from "@/assets/JPEG-02.jpg";
+import sunLogo from "@/assets/logo.jpg";
 
 export function AppSidebar({ ...props }) {
   const role = useUserDetailsStore((state) => state.role);

@@ -1,14 +1,19 @@
 import React from "react";
 import LoginForm from "./loginForm";
+import sunLogo from "@/assets/logo.jpg"
 
 export default function LandingPage() {
   return (
     <div className="landingpage-wrapper h-dvh flex flex-row">
       <div className="w-1/2 bg-primary p-8 flex flex-col justify-between">
+        <div className="flex flex-row gap-x-2 items-center">
+          <img src={sunLogo} className="w-14 h-14 rounded-lg"/>
         <div>
           <p className="font-bold text-3xl text-white">Sun Homeocare</p>
           <p className="font-light text-base text-white">A Multi speciality & Advanced Homeo clinic</p>
         </div>
+        </div>
+        
         <div>
           <p className="font-bold text-xl text-white">"The Best Possible & Trusted Care"</p>
         </div>
