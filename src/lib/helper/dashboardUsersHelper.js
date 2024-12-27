@@ -130,12 +130,11 @@ export const getJWTtoken = async (userDetails) => {
   }
 
   try {
-    const response = await fetch(`${import.meta.env.VITE_EDGE_FUNCTION_URL}/functions/v1/generate-token`, {
+    const response = await fetch(`${import.meta.env.VITE_PROD_EDGE_FUNCTION}/functions/v1/generate-token`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRXP1A7WOeoJeXxjNni43kdQwgnWNReilDMblYTn_I0",
+        Authorization: `Bearer ${import.meta.env.VITE_PROD_ANON_KEY}`,
       },
       body: JSON.stringify(userDetails),
     });

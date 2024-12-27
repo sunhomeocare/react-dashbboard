@@ -7,8 +7,15 @@ export default function LineGraph({ data }) {
     appointments: {
       label: "Appointments",
       color: "hsl(var(--chart-1))",
+      
     },
   };
+
+  if(!data.length){
+    return <div className="h-[200px] w-full flex flex-row justify-center items-center">
+      <p>No Appointment Trends found</p>
+    </div>
+  }
 
   return (
     <ChartContainer config={chartConfig} className="h-[200px] w-full">
@@ -18,13 +25,14 @@ export default function LineGraph({ data }) {
         margin={{
           left: 12,
           right: 12,
+          top: 8 //padding issue
         }}
       >
         <CartesianGrid vertical={false} />
-        <XAxis dataKey="month" tickLine={false} axisLine={false} tickMargin={8} tickFormatter={(value) => value.slice(0, 3)} />
-        <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
+        <XAxis dataKey="month_label" tickLine={false} axisLine={false} tickMargin={8} tickFormatter={(value) => value.slice(0, 3)} />
+        <ChartTooltip cursor={false} content={<ChartTooltipContent />}/>
         <Line
-          dataKey="appointments"
+          dataKey="appointment_count"
           type="natural"
           stroke="var(--color-appointments)"
           strokeWidth={2}
